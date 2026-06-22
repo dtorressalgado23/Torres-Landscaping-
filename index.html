@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Placeholder description for a professional landscaping and outdoor living company." />
+    <title>[Company Name Placeholder] — Professional Landscaping & Outdoor Living</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50:  '#f0f9f3',
+                            100: '#dcf0e1',
+                            200: '#bbe0c6',
+                            300: '#8ccaa3',
+                            400: '#56ad7b',
+                            500: '#34915f',
+                            600: '#25744b',
+                            700: '#1f5c3d',
+                            800: '#1b4a33',
+                            900: '#173d2c',
+                        },
+                        ink: {
+                            900: '#0f1a14',
+                            800: '#1a2620',
+                            700: '#2a3a32',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        display: ['"Playfair Display"', 'Georgia', 'serif'],
+                    },
+                    boxShadow: {
+                        soft: '0 10px 30px -12px rgba(15, 26, 20, 0.15)',
+                        lift: '0 25px 50px -12px rgba(15, 26, 20, 0.25)',
+                    },
+                    transitionDuration: {
+                        300: '300ms',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+        /* Reveal-on-scroll utility */
+        .reveal { opacity: 0; transform: translateY(24px); transition: opacity 700ms ease, transform 700ms ease; }
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Hero abstract background */
+        .hero-bg {
+            background:
+                radial-gradient(1200px 600px at 80% 10%, rgba(86, 173, 123, 0.35), transparent 60%),
+                radial-gradient(900px 500px at 10% 80%, rgba(31, 92, 61, 0.45), transparent 60%),
+                linear-gradient(135deg, #0f1a14 0%, #1b4a33 60%, #25744b 100%);
+        }
+        .hero-shape {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(40px);
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        /* Slider arrow buttons */
+        .slider-arrow {
+            width: 48px; height: 48px;
+            display: inline-flex; align-items: center; justify-content: center;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.15);
+            border: 1px solid rgba(255,255,255,0.25);
+            color: #fff;
+            backdrop-filter: blur(6px);
+            transition: all 300ms ease;
+        }
+        .slider-arrow:hover { background: rgba(255,255,255,0.9); color: #1b4a33; transform: scale(1.05); }
+
+        /* Pagination dot */
+        .dot { width: 10px; height: 10px; border-radius: 9999px; background: rgba(255,255,255,0.4); transition: all 300ms ease; }
+        .dot.active { background: #ffffff; width: 28px; }
+
+        /* Service card hover */
+        .service-card { transition: transform 300ms ease, box-shadow 300ms ease; }
+        .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(15, 26, 20, 0.25); }
+        .service-card:hover .service-icon { transform: scale(1.1) rotate(-3deg); }
+        .service-icon { transition: transform 300ms ease; }
+
+        /* Project card overlay */
+        .project-card .project-overlay { opacity: 0; transition: opacity 300ms ease; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .project-card .project-thumb { transition: transform 500ms ease; }
+        .project-card:hover .project-thumb { transform: scale(1.06); }
+
+        /* CTA primary button subtle motion */
+        .btn-primary { box-shadow: 0 10px 25px -10px rgba(37, 116, 75, 0.6); }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 35px -10px rgba(37, 116, 75, 0.55); }
+
+        /* Mobile menu animation */
+        .mobile-menu { transition: max-height 300ms ease, opacity 300ms ease; max-height: 0; opacity: 0; overflow: hidden; }
+        .mobile-menu.open { max-height: 600px; opacity: 1; }
+
+        /* Star rating */
+        .star { color: #f5b400; }
+    </style>
+</head>
+<body class="bg-white text-ink-800">
+
+    <!-- ========== 1. Top Information Bar ========== -->
+    <div class="bg-brand-800 text-white text-xs sm:text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between py-2 gap-2">
+            <div class="flex flex-wrap items-center gap-x-6 gap-y-1 justify-center sm:justify-start">
+                <span class="inline-flex items-center gap-2">📞 <span>[Phone Number Placeholder]</span></span>
+                <span class="hidden sm:inline-flex items-center gap-2">✉️ <span>[Email Placeholder]</span></span>
+                <span class="hidden md:inline-flex items-center gap-2">📍 <span>[Address Placeholder]</span></span>
+            </div>
+            <div class="flex items-center gap-4 text-white/80">
+                <span class="hidden sm:inline">🔗</span>
+                <a href="#" class="hover:text-white transition" aria-label="Social media placeholder">FB</a>
+                <a href="#" class="hover:text-white transition" aria-label="Social media placeholder">IG</a>
+                <a href="#" class="hover:text-white transition" aria-label="Social media placeholder">X</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== 2. Main Navigation ========== -->
+    <header class="bg-white/95 backdrop-blur sticky top-0 z-40 border-b border-gray-100">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo + Company Name -->
+                <a href="index.html" class="flex items-center gap-3">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold text-lg shadow-soft">L</div>
+                    <div class="leading-tight">
+                        <div class="font-display font-bold text-xl text-ink-900">[Company Name Placeholder]</div>
+                        <div class="text-[11px] tracking-widest text-brand-600 uppercase">Landscaping & Outdoor Living</div>
+                    </div>
+                </a>
+
+                <!-- Center nav (desktop) -->
+                <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
+                    <li><a href="index.html" class="text-brand-600 font-semibold">Home</a></li>
+                    <li><a href="services.html" class="hover:text-brand-600 transition">Services</a></li>
+                    <li><a href="about.html" class="hover:text-brand-600 transition">About</a></li>
+                    <li><a href="portfolio.html" class="hover:text-brand-600 transition">Portfolio</a></li>
+                    <li><a href="testimonials.html" class="hover:text-brand-600 transition">Testimonials</a></li>
+                </ul>
+
+                <!-- Right CTA -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-5 py-3 rounded-xl font-semibold transition">
+                        Get Free Estimate
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <button id="menuBtn" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-lg text-ink-800 hover:bg-gray-100 transition" aria-label="Toggle menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+
+            <!-- Mobile menu -->
+            <div id="mobileMenu" class="mobile-menu lg:hidden">
+                <ul class="flex flex-col gap-1 pb-4 text-ink-800 font-medium">
+                    <li><a href="#home" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Home</a></li>
+                    <li><a href="#services" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Services</a></li>
+                    <li><a href="#about" class="block px-3 py-2 rounded-lg hover:bg-gray-100">About</a></li>
+                    <li><a href="#portfolio" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Portfolio</a></li>
+                    <li><a href="#testimonials" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Testimonials</a></li>
+                    <li>
+                        <a href="#contact" class="mt-2 inline-flex items-center justify-center w-full bg-brand-600 text-white px-5 py-3 rounded-xl font-semibold">Get Free Estimate</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ========== 3. Hero Section ========== -->
+    <section id="home" class="relative hero-bg text-white overflow-hidden">
+        <!-- Decorative shapes -->
+        <div class="hero-shape" style="width: 320px; height: 320px; background: #56ad7b; top: -60px; right: -60px;"></div>
+        <div class="hero-shape" style="width: 260px; height: 260px; background: #1f5c3d; bottom: -80px; left: 20%;"></div>
+        <div class="hero-shape" style="width: 180px; height: 180px; background: #8ccaa3; top: 40%; right: 30%; opacity: 0.25;"></div>
+
+        <!-- Dark overlay for readability -->
+        <div class="absolute inset-0 bg-ink-900/40"></div>
+
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40 min-h-[80vh] flex items-center">
+            <div class="max-w-3xl">
+                <p class="uppercase tracking-[0.25em] text-brand-200 text-xs sm:text-sm font-semibold mb-4 reveal">
+                    Welcome to [Company Name]
+                </p>
+<!-- <img src="images/project1.jpeg" alt="Landscaping"> -->
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 reveal">
+                    Professional Landscaping &amp; Outdoor Living Solutions
+                </h1>
+                <p class="text-white/80 text-lg max-w-2xl mb-8 reveal">
+                    [Placeholder company description that highlights quality craftsmanship, reliable service, and beautiful outdoor spaces designed to fit your lifestyle and budget.]
+                </p>
+                <div class="flex flex-wrap gap-4 reveal">
+                    <a href="#portfolio" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-800 hover:bg-brand-50 px-6 py-3.5 rounded-xl font-semibold transition">
+                        View Our Work
+                    </a>
+                    <a href="#contact" class="inline-flex items-center gap-2 border border-white/40 text-white hover:bg-white/10 px-6 py-3.5 rounded-xl font-semibold transition">
+                        Request Estimate
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========== 4. Hero Slider Controls ========== -->
+        <button class="slider-arrow absolute left-4 sm:left-8 top-1/2 -translate-y-1/2" aria-label="Previous slide">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button class="slider-arrow absolute right-4 sm:right-8 top-1/2 -translate-y-1/2" aria-label="Next slide">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        <!-- Pagination indicators -->
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2">
+            <span class="dot active" aria-current="true"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+    </section>
+
+    <!-- ========== 5. Trust Indicators ========== -->
+    <section class="relative -mt-12 z-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+            <!-- Card 1 -->
+            <div class="reveal bg-white rounded-2xl shadow-soft p-6 text-center hover:-translate-y-1 transition">
+                <div class="text-brand-600 mb-2">
+                    <svg class="mx-auto h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3M16 7V3M3 11h18M5 5h14a2 2 0 012 2v12a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/></svg>
+                </div>
+                <div class="text-3xl font-bold text-ink-900">[##]+</div>
+                <div class="text-sm text-ink-700/70 mt-1">Years Experience</div>
+            </div>
+            <!-- Card 2 -->
+            <div class="reveal bg-white rounded-2xl shadow-soft p-6 text-center hover:-translate-y-1 transition">
+                <div class="text-brand-600 mb-2">
+                    <svg class="mx-auto h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7l9-4 9 4M5 9v8a2 2 0 002 2h10a2 2 0 002-2V9M9 21V12h6v9"/></svg>
+                </div>
+                <div class="text-3xl font-bold text-ink-900">[###]+</div>
+                <div class="text-sm text-ink-700/70 mt-1">Projects Completed</div>
+            </div>
+            <!-- Card 3 -->
+            <div class="reveal bg-white rounded-2xl shadow-soft p-6 text-center hover:-translate-y-1 transition">
+                <div class="text-brand-600 mb-2">
+                    <svg class="mx-auto h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-3-3.87M9 20H4v-2a4 4 0 013-3.87M16 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <div class="text-3xl font-bold text-ink-900">[###]+</div>
+                <div class="text-sm text-ink-700/70 mt-1">Happy Clients</div>
+            </div>
+            <!-- Card 4 -->
+            <div class="reveal bg-white rounded-2xl shadow-soft p-6 text-center hover:-translate-y-1 transition">
+                <div class="text-brand-600 mb-2">
+                    <svg class="mx-auto h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3 6 6 1-4.5 4 1 6L12 16l-5.5 3 1-6L3 9l6-1 3-6z"/></svg>
+                </div>
+                <div class="text-3xl font-bold text-ink-900">100%</div>
+                <div class="text-sm text-ink-700/70 mt-1">Satisfaction Guarantee</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 6. Services Preview ========== -->
+    <section id="services" class="py-20 sm:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">What we do</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">Our Services</h2>
+                <p class="mt-4 text-ink-700/80 reveal">[Placeholder tagline for the services section — a short sentence about comprehensive care from design to maintenance.]</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service 1 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l4-4 4 4 6-6 4 4M3 21h18"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Lawn Maintenance</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short benefit-driven sentence about consistent, healthy lawn care.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+                <!-- Service 2 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Landscape Design</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short sentence about custom design plans tailored to your property.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+                <!-- Service 3 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18M5 8c0 3 3 5 7 5s7-2 7-5"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Irrigation Systems</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short sentence about efficient, water-smart irrigation installation and repair.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+                <!-- Service 4 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Hardscaping</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short sentence about patios, walkways, and stone features built to last.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+                <!-- Service 5 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12M12 12c-3 0-6-2-6-6 0-2 1-4 3-4 2 0 3 1 3 3 0-2 1-3 3-3 2 0 3 2 3 4 0 4-3 6-6 6z"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Tree Care</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short sentence about pruning, removal, and overall tree health.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+                <!-- Service 6 -->
+                <article class="service-card reveal bg-white rounded-2xl p-7 shadow-soft">
+                    <div class="service-icon w-14 h-14 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center mb-5">
+                        <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M6 12h12M9 18h6"/></svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-ink-900 mb-2">Seasonal Cleanup</h3>
+                    <p class="text-ink-700/75 text-sm mb-4">[Placeholder description — short sentence about spring and fall cleanups to keep your yard pristine.]</p>
+                    <a href="#" class="text-brand-600 font-semibold text-sm hover:text-brand-700 inline-flex items-center gap-1">Learn More <span aria-hidden="true">→</span></a>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 6b. Portfolio / Gallery ========== -->
+    <section id="work" class="py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">Portfolio</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">Our Work</h2>
+                <p class="mt-4 text-ink-700/80 reveal">[Placeholder short paragraph introducing a selection of recent projects.]</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/Project1.jpeg" alt="Landscaping project 1" class="gallery-img absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
+                <!-- Gallery Item 2 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/project2.jpeg" alt="Landscaping project 2" class="gallery-img absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
+                <!-- Gallery Item 3 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/project3.jpeg" alt="Landscaping project 3" class="gallery-img absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 7. About Preview ========== -->
+    <section id="about" class="py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
+            <!-- Decorative placeholder image area -->
+            <div class="reveal relative">
+                <div class="aspect-[4/3] rounded-3xl overflow-hidden shadow-soft">
+                    <div class="w-full h-full bg-gradient-to-br from-brand-200 via-brand-400 to-brand-700 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 20% 30%, #fff 0%, transparent 35%), radial-gradient(circle at 80% 70%, #1b4a33 0%, transparent 40%);"></div>
+                        <div class="absolute bottom-4 left-4 text-white/80 text-xs tracking-widest uppercase">[Image Placeholder]</div>
+                    </div>
+                </div>
+                <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
+            </div>
+
+            <!-- Text -->
+            <div class="reveal">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">About us</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Creating Beautiful Outdoor Spaces</h2>
+                <p class="text-ink-700/80 mb-4">
+                    [Placeholder paragraph describing the company mission — a short story about craftsmanship, attention to detail, and a commitment to making every property look its best throughout the year.]
+                </p>
+                <p class="text-ink-700/80 mb-6">
+                    [Placeholder paragraph about the team's experience and dedication to customer satisfaction.]
+                </p>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Licensed &amp; Insured</span></li>
+                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Professional Team</span></li>
+                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Quality Workmanship</span></li>
+                </ul>
+                <a href="#" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
+                    Learn More <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 8. Featured Projects ========== -->
+    <section id="portfolio" class="py-20 sm:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">Portfolio</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">Featured Projects</h2>
+                <p class="mt-4 text-ink-700/80 reveal">[Placeholder short paragraph introducing a few recent featured projects.]</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-br from-brand-300 via-brand-500 to-brand-800 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 40%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+                <!-- Project 2 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-tr from-brand-100 via-brand-400 to-brand-700 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+                <!-- Project 3 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-bl from-brand-200 via-brand-500 to-brand-900 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 40% 70%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 9. Testimonials ========== -->
+    <section id="testimonials" class="py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">Testimonials</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">What Our Clients Say</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Testimonial 1 -->
+                <figure class="reveal bg-white rounded-2xl p-7 shadow-soft border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4" aria-label="5 out of 5 stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <blockquote class="text-ink-700/85 mb-6">
+                        "[Placeholder review — short paragraph describing a great experience with friendly crew, on-time service, and beautiful results.]"
+                    </blockquote>
+                    <figcaption class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-300 to-brand-700 flex items-center justify-center text-white font-semibold">[A]</div>
+                        <div>
+                            <div class="font-semibold text-ink-900">[Customer Name Placeholder]</div>
+                            <div class="text-xs text-ink-700/60">[Location Placeholder]</div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <!-- Testimonial 2 -->
+                <figure class="reveal bg-white rounded-2xl p-7 shadow-soft border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4" aria-label="5 out of 5 stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <blockquote class="text-ink-700/85 mb-6">
+                        "[Placeholder review — short paragraph highlighting professionalism, clear communication, and quality workmanship that exceeded expectations.]"
+                    </blockquote>
+                    <figcaption class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-200 to-brand-600 flex items-center justify-center text-white font-semibold">[B]</div>
+                        <div>
+                            <div class="font-semibold text-ink-900">[Customer Name Placeholder]</div>
+                            <div class="text-xs text-ink-700/60">[Location Placeholder]</div>
+                        </div>
+                    </figcaption>
+                </figure>
+
+                <!-- Testimonial 3 -->
+                <figure class="reveal bg-white rounded-2xl p-7 shadow-soft border border-gray-100">
+                    <div class="flex items-center gap-1 mb-4" aria-label="5 out of 5 stars">
+                        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+                    </div>
+                    <blockquote class="text-ink-700/85 mb-6">
+                        "[Placeholder review — short paragraph praising attention to detail, fair pricing, and a yard that the whole neighborhood has been complimenting.]"
+                    </blockquote>
+                    <figcaption class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-brand-400 to-brand-800 flex items-center justify-center text-white font-semibold">[C]</div>
+                        <div>
+                            <div class="font-semibold text-ink-900">[Customer Name Placeholder]</div>
+                            <div class="text-xs text-ink-700/60">[Location Placeholder]</div>
+                        </div>
+                    </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 10. Call-to-Action Banner ========== -->
+    <section id="contact" class="bg-brand-600 text-white py-16 sm:py-20">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="font-display font-bold text-3xl sm:text-4xl reveal">Ready to Transform Your Outdoor Space?</h2>
+            <p class="text-white/85 mt-4 text-lg reveal">Contact us today for a free consultation.</p>
+            <div class="mt-8 reveal">
+                <a href="#" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-800 hover:bg-brand-50 px-7 py-4 rounded-xl font-semibold transition">
+                    Get Started <span aria-hidden="true">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 11. Footer ========== -->
+    <footer class="bg-ink-900 text-white/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
+            <!-- Brand column -->
+            <div>
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold">L</div>
+                    <div class="font-display font-bold text-white text-lg">[Company Name Placeholder]</div>
+                </div>
+                <p class="text-sm text-white/60">[Placeholder footer tagline — short description of the business.]</p>
+            </div>
+
+            <!-- Company -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Company</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">About</a></li>
+                    <li><a href="#" class="hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition">Services</a></li>
+                </ul>
+            </div>
+
+            <!-- Resources -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Blog</a></li>
+                    <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+                    <li><a href="#" class="hover:text-white transition">Support</a></li>
+                </ul>
+            </div>
+
+            <!-- Quick Links -->
+            <div>
+                <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2 text-sm">
+                    <li><a href="#" class="hover:text-white transition">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition">Terms</a></li>
+                    <li><a href="#" class="hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="border-t border-white/10">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 text-center text-sm text-white/55">
+                © 20XX [Company Name Placeholder]. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuBtn.setAttribute('aria-expanded', String(isOpen));
+        });
+        // Close mobile menu after clicking a link
+        mobileMenu.querySelectorAll('a').forEach(a => {
+            a.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        });
+
+        // Scroll reveal using IntersectionObserver
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    </script>
+</body>
+</html>
