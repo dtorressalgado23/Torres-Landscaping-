@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Placeholder description for the services page of a professional landscaping and outdoor living company." />
-    <title>Services — [Company Name Placeholder]</title>
+    <meta name="description" content="Placeholder description for the portfolio page of a professional landscaping and outdoor living company." />
+    <title>Portfolio — [Torres Landscaping]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,11 +70,11 @@
             pointer-events: none;
         }
 
-        /* Service card hover */
-        .service-card { transition: transform 300ms ease, box-shadow 300ms ease; }
-        .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(15, 26, 20, 0.25); }
-        .service-card:hover .service-icon { transform: scale(1.1) rotate(-3deg); }
-        .service-icon { transition: transform 300ms ease; }
+        /* Project card overlay */
+        .project-card .project-overlay { opacity: 0; transition: opacity 300ms ease; }
+        .project-card:hover .project-overlay { opacity: 1; }
+        .project-card .project-thumb { transition: transform 500ms ease; }
+        .project-card:hover .project-thumb { transform: scale(1.06); }
 
         /* CTA primary button subtle motion */
         .btn-primary { box-shadow: 0 10px 25px -10px rgba(37, 116, 75, 0.6); }
@@ -91,9 +91,9 @@
     <div class="bg-brand-800 text-white text-xs sm:text-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between py-2 gap-2">
             <div class="flex flex-wrap items-center gap-x-6 gap-y-1 justify-center sm:justify-start">
-                <span class="inline-flex items-center gap-2">📞 <span>[Phone Number Placeholder]</span></span>
-                <span class="hidden sm:inline-flex items-center gap-2">✉️ <span>[Email Placeholder]</span></span>
-                <span class="hidden md:inline-flex items-center gap-2">📍 <span>[Address Placeholder]</span></span>
+                <span class="inline-flex items-center gap-2">📞 <span>[(650)-921-1971]</span></span>
+                <span class="hidden sm:inline-flex items-center gap-2">✉️ <span>[Torreslandscaping@hotmail.com]</span></span>
+                <span class="hidden md:inline-flex items-center gap-2">📍 <span>[Bay Area]</span></span>
             </div>
             <div class="flex items-center gap-4 text-white/80">
                 <span class="hidden sm:inline">🔗</span>
@@ -112,7 +112,7 @@
                 <a href="index.html" class="flex items-center gap-3">
                     <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-brand-500 to-brand-700 flex items-center justify-center text-white font-bold text-lg shadow-soft">L</div>
                     <div class="leading-tight">
-                        <div class="font-display font-bold text-xl text-ink-900">[Company Name Placeholder]</div>
+                        <div class="font-display font-bold text-xl text-ink-900">[Torres Landscaping]</div>
                         <div class="text-[11px] tracking-widest text-brand-600 uppercase">Landscaping & Outdoor Living</div>
                     </div>
                 </a>
@@ -120,9 +120,9 @@
                 <!-- Center nav (desktop) -->
                 <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
                     <li><a href="index.html" class="hover:text-brand-600 transition">Home</a></li>
-                    <li><a href="services.html" class="text-brand-600 font-semibold">Services</a></li>
+                    <li><a href="services.html" class="hover:text-brand-600 transition">Services</a></li>
                     <li><a href="about.html" class="hover:text-brand-600 transition">About</a></li>
-                    <li><a href="portfolio.html" class="hover:text-brand-600 transition">Portfolio</a></li>
+                    <li><a href="portfolio.html" class="text-brand-600 font-semibold">Portfolio</a></li>
                     <li><a href="testimonials.html" class="hover:text-brand-600 transition">Testimonials</a></li>
                 </ul>
 
@@ -146,9 +146,9 @@
             <div id="mobileMenu" class="mobile-menu lg:hidden">
                 <ul class="flex flex-col gap-1 pb-4 text-ink-800 font-medium">
                     <li><a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Home</a></li>
-                    <li><a href="services.html" class="block px-3 py-2 rounded-lg bg-brand-50 text-brand-700">Services</a></li>
+                    <li><a href="services.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Services</a></li>
                     <li><a href="about.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">About</a></li>
-                    <li><a href="portfolio.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Portfolio</a></li>
+                    <li><a href="portfolio.html" class="block px-3 py-2 rounded-lg bg-brand-50 text-brand-700">Portfolio</a></li>
                     <li><a href="testimonials.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Testimonials</a></li>
                     <li>
                         <a href="contact.html" class="mt-2 inline-flex items-center justify-center w-full bg-brand-600 text-white px-5 py-3 rounded-xl font-semibold">Get Free Estimate</a>
@@ -162,128 +162,111 @@
     <section class="relative hero-bg text-white overflow-hidden">
         <div class="hero-shape" style="width: 320px; height: 320px; background: #56ad7b; top: -60px; right: -60px;"></div>
         <div class="hero-shape" style="width: 260px; height: 260px; background: #1f5c3d; bottom: -80px; left: 20%;"></div>
+        <div class="hero-shape" style="width: 180px; height: 180px; background: #8ccaa3; top: 40%; right: 30%; opacity: 0.25;"></div>
+
         <div class="absolute inset-0 bg-ink-900/40"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 flex items-center">
-            <div>
-                <p class="uppercase tracking-[0.25em] text-brand-200 text-xs font-semibold mb-3 reveal">What we do</p>
-                <h1 class="font-display font-bold text-4xl sm:text-5xl text-white leading-tight reveal">Our Services</h1>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== 4. Residential Maintenance ========== -->
-    <section id="residential" class="py-20 sm:py-28 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Visual / Icon side -->
-            <div class="reveal order-2 lg:order-1">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-br from-brand-200 via-brand-400 to-brand-700">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 20% 30%, #fff 0%, transparent 35%), radial-gradient(circle at 80% 70%, #1b4a33 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l4-4 4 4 6-6 4 4M3 21h18"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
-            </div>
-
-            <!-- Text -->
-            <div class="reveal order-1 lg:order-2">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 01</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Residential Maintenance</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences explaining the residential maintenance service for homeowners who want a consistently well-kept yard.]
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex items-center">
+            <div class="max-w-3xl">
+                <p class="uppercase tracking-[0.25em] text-brand-200 text-xs sm:text-sm font-semibold mb-4 reveal">
+                    Portfolio
                 </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Mowing</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Grass cutting</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Yard cleaning</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Regular scheduled visits</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== 6. Commercial Cleaning ========== -->
-    <section id="commercial" class="py-20 sm:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Text (reversed order on desktop) -->
-            <div class="reveal">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 02</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Commercial Cleaning</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences introducing the commercial cleaning service for offices and business properties.]
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 reveal">
+                    Our Work
+                </h1>
+                <p class="text-white/80 text-lg max-w-2xl mb-8 reveal">
+                    [We'll let our work do the talking, In our portfolio, you will find ressidential, and corperate work done from all over the west bay]
                 </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Office buildings</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Saturday cleaning available</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Reliable commercial contracts</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
-
-            <!-- Visual / Icon side -->
-            <div class="reveal relative">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-tr from-brand-100 via-brand-400 to-brand-700">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, #fff 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21V8l9-5 9 5v13M9 21v-6h6v6M3 21h18"/></svg>
-                        </div>
-                    </div>
+                <div class="flex flex-wrap gap-4 reveal">
+                    <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-800 hover:bg-brand-50 px-6 py-3.5 rounded-xl font-semibold transition">
+                        Request an Estimate
+                    </a>
                 </div>
-                <div class="hidden md:block absolute -bottom-6 -left-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
             </div>
         </div>
     </section>
 
-    <!-- ========== 7. Landscaping Projects ========== -->
-    <section id="landscaping" class="py-20 sm:py-28 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Visual / Icon side -->
-            <div class="reveal order-2 lg:order-1 relative">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-bl from-brand-200 via-brand-500 to-brand-900">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 40% 70%, #fff 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12M12 12c-3 0-6-2-6-6 0-2 1-4 3-4 2 0 3 1 3 3 0-2 1-3 3-3 2 0 3 2 3 4 0 4-3 6-6 6z"/></svg>
-                        </div>
-                    </div>
-                </div>
-                <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
+    <!-- ========== 4. Photo Gallery ========== -->
+    <section class="py-20 sm:py-28">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">Gallery</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">Selected Projects</h2>
+                <p class="mt-4 text-ink-700/80 reveal">[Placeholder short paragraph introducing a selection of recent projects.]</p>
             </div>
 
-            <!-- Text -->
-            <div class="reveal order-1 lg:order-2">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 03</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Landscaping Projects</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences about custom landscaping projects, from small upgrades to full property transformations.]
-                </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Fencing</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Planting</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Dirt and grading work</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Custom estimates</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <!-- Gallery Item 1 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/Project1.jpeg" alt="Landscaping project 1" class="absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
+                <!-- Gallery Item 2 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/project2.jpeg" alt="Landscaping project 2" class="absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
+                <!-- Gallery Item 3 -->
+                <figure class="reveal group relative overflow-hidden rounded-2xl shadow-soft bg-gray-100 aspect-[4/3]">
+                    <img src="Images/project3.jpeg" alt="Landscaping project 3" class="absolute inset-0 h-full w-full object-cover transition duration-500 ease-out group-hover:scale-105" />
+                    <div class="absolute inset-0 bg-ink-900/0 group-hover:bg-ink-900/30 transition duration-300 ease-out"></div>
+                </figure>
             </div>
         </div>
     </section>
 
-    <!-- ========== 8. Call-to-Action Banner ========== -->
+    <!-- ========== 5. Featured Projects ========== -->
+    <section class="py-20 sm:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-14">
+                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3 reveal">Featured</p>
+                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 reveal">Featured Projects</h2>
+                <p class="mt-4 text-ink-700/80 reveal">[Placeholder short paragraph introducing a few recent featured projects.]</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Project 1 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-br from-brand-300 via-brand-500 to-brand-800 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 30% 40%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+                <!-- Project 2 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-tr from-brand-100 via-brand-400 to-brand-700 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+                <!-- Project 3 -->
+                <article class="project-card reveal relative overflow-hidden rounded-2xl shadow-soft group cursor-pointer">
+                    <div class="project-thumb aspect-[4/3] bg-gradient-to-bl from-brand-200 via-brand-500 to-brand-900 relative">
+                        <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 40% 70%, #fff 0%, transparent 40%);"></div>
+                    </div>
+                    <div class="project-overlay absolute inset-0 bg-ink-900/60 flex flex-col items-center justify-center text-center p-6 text-white">
+                        <h3 class="text-xl font-semibold mb-1">[Project Title Placeholder]</h3>
+                        <p class="text-sm text-white/80 mb-4">[Category Placeholder]</p>
+                        <button class="bg-white text-brand-800 px-5 py-2.5 rounded-lg font-semibold text-sm">View Project</button>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 6. Call-to-Action Banner ========== -->
     <section class="bg-brand-600 text-white py-16 sm:py-20">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-display font-bold text-3xl sm:text-4xl reveal">Not Sure Which Service You Need?</h2>
-            <p class="text-white/85 mt-4 text-lg reveal">Tell us about your property and we'll recommend the right plan.</p>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl reveal">Like What You See?</h2>
+            <p class="text-white/85 mt-4 text-lg reveal">Let's discuss your project — request a free estimate today.</p>
             <div class="mt-8 reveal">
                 <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-800 hover:bg-brand-50 px-7 py-4 rounded-xl font-semibold transition">
                     Request an Estimate <span aria-hidden="true">→</span>
@@ -292,7 +275,7 @@
         </div>
     </section>
 
-    <!-- ========== 9. Footer ========== -->
+    <!-- ========== 7. Footer ========== -->
     <footer class="bg-ink-900 text-white/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
             <!-- Brand column -->
@@ -320,7 +303,7 @@
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white transition">Blog</a></li>
                     <li><a href="#" class="hover:text-white transition">FAQs</a></li>
-                    <li><a href="#" class="hover:text-white transition">Support</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Support</a></li>
                 </ul>
             </div>
 

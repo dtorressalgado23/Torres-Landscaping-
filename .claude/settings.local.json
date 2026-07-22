@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --no-install playwright --version)",
+      "Bash(python3 -c \"import playwright\")"
+    ]
+  }
+}

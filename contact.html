@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Placeholder description for the services page of a professional landscaping and outdoor living company." />
-    <title>Services — [Company Name Placeholder]</title>
+    <meta name="description" content="Placeholder description for the contact page of a professional landscaping and outdoor living company." />
+    <title>Contact — [Company Name Placeholder]</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -70,12 +70,6 @@
             pointer-events: none;
         }
 
-        /* Service card hover */
-        .service-card { transition: transform 300ms ease, box-shadow 300ms ease; }
-        .service-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px -12px rgba(15, 26, 20, 0.25); }
-        .service-card:hover .service-icon { transform: scale(1.1) rotate(-3deg); }
-        .service-icon { transition: transform 300ms ease; }
-
         /* CTA primary button subtle motion */
         .btn-primary { box-shadow: 0 10px 25px -10px rgba(37, 116, 75, 0.6); }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 35px -10px rgba(37, 116, 75, 0.55); }
@@ -83,6 +77,30 @@
         /* Mobile menu animation */
         .mobile-menu { transition: max-height 300ms ease, opacity 300ms ease; max-height: 0; opacity: 0; overflow: hidden; }
         .mobile-menu.open { max-height: 600px; opacity: 1; }
+
+        /* Form inputs */
+        .field-input {
+            width: 100%;
+            border: 1px solid #e5e7eb;
+            background: #fff;
+            border-radius: 0.75rem;
+            padding: 0.75rem 1rem;
+            font-size: 0.95rem;
+            color: #1a2620;
+            transition: border-color 200ms ease, box-shadow 200ms ease;
+        }
+        .field-input:focus {
+            outline: none;
+            border-color: #25744b;
+            box-shadow: 0 0 0 4px rgba(37, 116, 75, 0.15);
+        }
+        .field-label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #2a3a32;
+            margin-bottom: 0.35rem;
+        }
     </style>
 </head>
 <body class="bg-white text-ink-800">
@@ -120,7 +138,7 @@
                 <!-- Center nav (desktop) -->
                 <ul class="hidden lg:flex items-center gap-8 text-sm font-medium text-ink-700">
                     <li><a href="index.html" class="hover:text-brand-600 transition">Home</a></li>
-                    <li><a href="services.html" class="text-brand-600 font-semibold">Services</a></li>
+                    <li><a href="services.html" class="hover:text-brand-600 transition">Services</a></li>
                     <li><a href="about.html" class="hover:text-brand-600 transition">About</a></li>
                     <li><a href="portfolio.html" class="hover:text-brand-600 transition">Portfolio</a></li>
                     <li><a href="testimonials.html" class="hover:text-brand-600 transition">Testimonials</a></li>
@@ -146,7 +164,7 @@
             <div id="mobileMenu" class="mobile-menu lg:hidden">
                 <ul class="flex flex-col gap-1 pb-4 text-ink-800 font-medium">
                     <li><a href="index.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Home</a></li>
-                    <li><a href="services.html" class="block px-3 py-2 rounded-lg bg-brand-50 text-brand-700">Services</a></li>
+                    <li><a href="services.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Services</a></li>
                     <li><a href="about.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">About</a></li>
                     <li><a href="portfolio.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Portfolio</a></li>
                     <li><a href="testimonials.html" class="block px-3 py-2 rounded-lg hover:bg-gray-100">Testimonials</a></li>
@@ -162,137 +180,116 @@
     <section class="relative hero-bg text-white overflow-hidden">
         <div class="hero-shape" style="width: 320px; height: 320px; background: #56ad7b; top: -60px; right: -60px;"></div>
         <div class="hero-shape" style="width: 260px; height: 260px; background: #1f5c3d; bottom: -80px; left: 20%;"></div>
+        <div class="hero-shape" style="width: 180px; height: 180px; background: #8ccaa3; top: 40%; right: 30%; opacity: 0.25;"></div>
+
         <div class="absolute inset-0 bg-ink-900/40"></div>
 
-        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 md:py-20 flex items-center">
-            <div>
-                <p class="uppercase tracking-[0.25em] text-brand-200 text-xs font-semibold mb-3 reveal">What we do</p>
-                <h1 class="font-display font-bold text-4xl sm:text-5xl text-white leading-tight reveal">Our Services</h1>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 flex items-center">
+            <div class="max-w-3xl">
+                <p class="uppercase tracking-[0.25em] text-brand-200 text-xs sm:text-sm font-semibold mb-4 reveal">
+                    Get in touch
+                </p>
+                <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl leading-tight mb-6 reveal">
+                    Request a Free Estimate
+                </h1>
+                <p class="text-white/80 text-lg max-w-2xl mb-8 reveal">
+                    [Placeholder short intro — a sentence or two inviting visitors to share details about their project and promising a fast response.]
+                </p>
             </div>
         </div>
     </section>
 
-    <!-- ========== 4. Residential Maintenance ========== -->
-    <section id="residential" class="py-20 sm:py-28 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Visual / Icon side -->
-            <div class="reveal order-2 lg:order-1">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-br from-brand-200 via-brand-400 to-brand-700">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 20% 30%, #fff 0%, transparent 35%), radial-gradient(circle at 80% 70%, #1b4a33 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 17l4-4 4 4 6-6 4 4M3 21h18"/></svg>
+    <!-- ========== 4. Form + Contact Info ========== -->
+    <section class="py-20 sm:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-5 gap-8">
+            <!-- Contact form -->
+            <div class="reveal lg:col-span-3 bg-white rounded-2xl shadow-soft p-7 sm:p-10">
+                <h2 class="font-display font-bold text-2xl sm:text-3xl text-ink-900 mb-2">Tell us about your project</h2>
+                <p class="text-ink-700/75 text-sm mb-8">[Placeholder short helper text under the form heading.]</p>
+
+                <form action="#" method="post" class="space-y-5">
+                    <div class="grid sm:grid-cols-2 gap-5">
+                        <div>
+                            <label for="name" class="field-label">Full name</label>
+                            <input id="name" name="name" type="text" required class="field-input" placeholder="[Your Name Placeholder]" />
+                        </div>
+                        <div>
+                            <label for="phone" class="field-label">Phone</label>
+                            <input id="phone" name="phone" type="tel" class="field-input" placeholder="[Phone Number Placeholder]" />
                         </div>
                     </div>
-                </div>
-                <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
-            </div>
 
-            <!-- Text -->
-            <div class="reveal order-1 lg:order-2">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 01</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Residential Maintenance</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences explaining the residential maintenance service for homeowners who want a consistently well-kept yard.]
-                </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Mowing</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Grass cutting</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Yard cleaning</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Regular scheduled visits</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== 6. Commercial Cleaning ========== -->
-    <section id="commercial" class="py-20 sm:py-28">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Text (reversed order on desktop) -->
-            <div class="reveal">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 02</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Commercial Cleaning</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences introducing the commercial cleaning service for offices and business properties.]
-                </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Office buildings</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Saturday cleaning available</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Reliable commercial contracts</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
-
-            <!-- Visual / Icon side -->
-            <div class="reveal relative">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-tr from-brand-100 via-brand-400 to-brand-700">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 70% 30%, #fff 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 21V8l9-5 9 5v13M9 21v-6h6v6M3 21h18"/></svg>
-                        </div>
+                    <div>
+                        <label for="email" class="field-label">Email</label>
+                        <input id="email" name="email" type="email" required class="field-input" placeholder="[Email Placeholder]" />
                     </div>
-                </div>
-                <div class="hidden md:block absolute -bottom-6 -left-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
-            </div>
-        </div>
-    </section>
 
-    <!-- ========== 7. Landscaping Projects ========== -->
-    <section id="landscaping" class="py-20 sm:py-28 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-center">
-            <!-- Visual / Icon side -->
-            <div class="reveal order-2 lg:order-1 relative">
-                <div class="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-soft bg-gradient-to-bl from-brand-200 via-brand-500 to-brand-900">
-                    <div class="absolute inset-0 opacity-30" style="background: radial-gradient(circle at 40% 70%, #fff 0%, transparent 40%);"></div>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <div class="service-icon w-24 h-24 rounded-2xl bg-white/95 text-brand-700 flex items-center justify-center shadow-soft">
-                            <svg class="h-12 w-12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22V12M12 12c-3 0-6-2-6-6 0-2 1-4 3-4 2 0 3 1 3 3 0-2 1-3 3-3 2 0 3 2 3 4 0 4-3 6-6 6z"/></svg>
-                        </div>
+                    <div>
+                        <label for="service" class="field-label">Service of interest</label>
+                        <select id="service" name="service" class="field-input">
+                            <option value="">[Select a service]</option>
+                            <option>Residential Maintenance</option>
+                            <option>Commercial Cleaning</option>
+                            <option>Landscaping Projects</option>
+                            <option>Other</option>
+                        </select>
                     </div>
+
+                    <div>
+                        <label for="message" class="field-label">Message</label>
+                        <textarea id="message" name="message" rows="5" required class="field-input" placeholder="[Placeholder — tell us a little about the property, square footage, timing, etc.]"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition w-full sm:w-auto justify-center">
+                        Send Request <span aria-hidden="true">→</span>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Contact info card -->
+            <aside class="reveal lg:col-span-2 space-y-6">
+                <div class="bg-white rounded-2xl shadow-soft p-7">
+                    <h3 class="font-display font-bold text-xl text-ink-900 mb-5">Contact Information</h3>
+                    <ul class="space-y-4 text-sm">
+                        <li class="flex items-start gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M22 16.92V21a1 1 0 01-1.11 1A19.86 19.86 0 012 4.11 1 1 0 013 3h4.09a1 1 0 011 .75l1 4a1 1 0 01-.29 1L7 10.5a16 16 0 006.5 6.5l1.74-1.79a1 1 0 011-.29l4 1a1 1 0 01.75 1z"/></svg>
+                            </span>
+                            <div>
+                                <div class="font-semibold text-ink-900">Phone</div>
+                                <div class="text-ink-700/75">[Phone Number Placeholder]</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2zM22 6l-10 7L2 6"/></svg>
+                            </span>
+                            <div>
+                                <div class="font-semibold text-ink-900">Email</div>
+                                <div class="text-ink-700/75">[Email Placeholder]</div>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-brand-100 text-brand-700 flex items-center justify-center shrink-0">
+                                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-7.58 8-13a8 8 0 10-16 0c0 5.42 8 13 8 13z"/><circle cx="12" cy="9" r="3"/></svg>
+                            </span>
+                            <div>
+                                <div class="font-semibold text-ink-900">Address</div>
+                                <div class="text-ink-700/75">[Address Placeholder]</div>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="hidden md:block absolute -bottom-6 -right-6 w-32 h-32 rounded-2xl bg-brand-100 -z-10"></div>
-            </div>
 
-            <!-- Text -->
-            <div class="reveal order-1 lg:order-2">
-                <p class="uppercase tracking-widest text-brand-600 text-xs font-semibold mb-3">Service 03</p>
-                <h2 class="font-display font-bold text-3xl sm:text-4xl text-ink-900 mb-5">Landscaping Projects</h2>
-                <p class="text-ink-700/80 mb-6">
-                    [Placeholder short description — one or two sentences about custom landscaping projects, from small upgrades to full property transformations.]
-                </p>
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Fencing</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Planting</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Dirt and grading work</span></li>
-                    <li class="flex items-start gap-3"><span class="text-brand-600 mt-0.5">✔</span> <span>Custom estimates</span></li>
-                </ul>
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-brand-600 hover:bg-brand-700 text-white px-6 py-3.5 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
+                <div class="bg-white rounded-2xl shadow-soft p-7">
+                    <h3 class="font-display font-bold text-xl text-ink-900 mb-2">Hours</h3>
+                    <p class="text-sm text-ink-700/75">[Placeholder — typical business hours and any weekend availability.]</p>
+                </div>
+            </aside>
         </div>
     </section>
 
-    <!-- ========== 8. Call-to-Action Banner ========== -->
-    <section class="bg-brand-600 text-white py-16 sm:py-20">
-        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="font-display font-bold text-3xl sm:text-4xl reveal">Not Sure Which Service You Need?</h2>
-            <p class="text-white/85 mt-4 text-lg reveal">Tell us about your property and we'll recommend the right plan.</p>
-            <div class="mt-8 reveal">
-                <a href="contact.html" class="btn-primary inline-flex items-center gap-2 bg-white text-brand-800 hover:bg-brand-50 px-7 py-4 rounded-xl font-semibold transition">
-                    Request an Estimate <span aria-hidden="true">→</span>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ========== 9. Footer ========== -->
+    <!-- ========== 5. Footer ========== -->
     <footer class="bg-ink-900 text-white/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 grid sm:grid-cols-2 md:grid-cols-4 gap-10">
             <!-- Brand column -->
@@ -320,7 +317,7 @@
                 <ul class="space-y-2 text-sm">
                     <li><a href="#" class="hover:text-white transition">Blog</a></li>
                     <li><a href="#" class="hover:text-white transition">FAQs</a></li>
-                    <li><a href="#" class="hover:text-white transition">Support</a></li>
+                    <li><a href="contact.html" class="hover:text-white transition">Support</a></li>
                 </ul>
             </div>
 
